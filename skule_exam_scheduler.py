@@ -69,7 +69,7 @@ unique_courses = exam_data['Course_Display'].unique()
 selected_courses_display = st.multiselect("Select courses to export:", unique_courses)
 selected_courses = exam_data[exam_data['Course_Display'].isin(selected_courses_display)]['Course'].unique()
 
-if user_last_name and selected_courses:
+if user_last_name and selected_courses.size > 0:
     # Filter selected courses from the data
     selected_courses_data = exam_data[exam_data['Course'].isin([course.upper() for course in selected_courses])]
     filtered_courses = filter_courses_by_last_name(selected_courses_data, user_last_name)
