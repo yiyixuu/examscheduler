@@ -3,6 +3,8 @@ import streamlit as st
 from ics import Calendar, Event
 from datetime import timedelta
 
+st.set_page_config(page_title="Exam Calendar Export Tool", page_icon="🗓️")
+
 # Function to filter courses by last name
 def filter_courses_by_last_name(selected_courses, last_name):
     # Filter the selected courses based on the user's last name
