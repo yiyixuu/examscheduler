@@ -1,4 +1,4 @@
-streamlit
-pandas
-ics
-openpyxl
+streamlit==1.39.0
+pandas==2.2.3
+ics==0.7.2
+openpyxl==3.1.5
