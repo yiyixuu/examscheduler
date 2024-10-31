@@ -58,14 +58,16 @@ def create_exam_calendar(selected_courses, user_last_name):
 st.title("SKULE Exam Calendar Export Tool")
 
 # Load the exam data from the xlsx file
-exam_data = pd.read_excel('data.xlsx')
+exam_data = pd.read_excel('data.xlsx').iloc[:-2]
 
 # User input for last name
 user_last_name = st.text_input("Enter your last name:")
 
 # Course selection using a multi-select box
-unique_courses = exam_data['Course'].unique()
-selected_courses = st.multiselect("Select courses to export:", unique_courses)
+exam_data['Course_Display'] = exam_data['Course'].str[:-3] + ' - ' + exam_data['Course Title']
+unique_courses = exam_data['Course_Display'].unique()
+selected_courses_display = st.multiselect("Select courses to export:", unique_courses)
+selected_courses = exam_data[exam_data['Course_Display'].isin(selected_courses_display)]['Course'].unique()
 
 if user_last_name and selected_courses:
     # Filter selected courses from the data
@@ -78,4 +80,4 @@ else:
     st.error("Please enter your last name and select at least one course.")
 
 st.markdown("---")
-st.markdown("Made by Yiyi Xu")
+st.markdown("<div style='text-align: center;'>Made by Yiyi Xu, N&Psi; 2T7 😎</div>", unsafe_allow_html=True)
