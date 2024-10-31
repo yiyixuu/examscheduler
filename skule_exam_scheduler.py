@@ -2,6 +2,9 @@ import pandas as pd
 import streamlit as st
 from ics import Calendar, Event
 from datetime import timedelta
+import warnings
+
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
 st.set_page_config(page_title="Exam Calendar Export Tool", page_icon="🗓️")
 
@@ -31,7 +34,12 @@ def create_exam_calendar(selected_courses, user_last_name):
         exam_date_time = pd.to_datetime(f"{row['Date']} {row['Time']}")
         exam_event.begin = exam_date_time.tz_localize('America/New_York')
         exam_event.end = (exam_date_time + timedelta(hours=2, minutes=30)).tz_localize('America/New_York')  # Assuming exams are 2.5 hours long
-        exam_event.location = row['Location'].replace('-', '')
+        exam_event.location = row['Location']
+        if isinstance(exam_event.location, str):
+            exam_event.location = exam_event.location.replace('-', '')
+        else:
+            exam_event.location = "Location not specified"
+
 
         # Add a description to the event
         exam_event.description = f"{row['Course Title']}\nSurname Range: {row['Surname Range']}"
