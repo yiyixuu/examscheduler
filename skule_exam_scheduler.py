@@ -76,3 +76,6 @@ if user_last_name and selected_courses:
     create_exam_calendar(filtered_courses, user_last_name)
 else:
     st.error("Please enter your last name and select at least one course.")
+
+st.markdown("---")
+st.markdown("Made by Yiyi Xu")
