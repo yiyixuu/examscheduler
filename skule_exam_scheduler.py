@@ -65,7 +65,7 @@ def create_exam_calendar(selected_courses, user_last_name):
 # Streamlit UI
 st.title("SKULE Exam Calendar Export Tool")
 st.markdown("""**Note**: This tool provides exam schedules based on the latest pulled data. The tool might also not function properly for some last names on the cutoff. Please always cross-check with the [official registrar page](https://app.powerbi.com/groups/me/reports/b497d2ec-e0c4-425d-811e-0fe79b28d68d/ReportSection?experience=power-bi) to ensure accuracy. I am not liable for your missed exams!""")
-st.markdown("""**Last data pulled**: 10/31/2024 3:47:45 PM""")
+st.markdown("""**Last data pulled**: 11/8/2024 11:07:52 AM""")
 
 
 # Load the exam data from the xlsx file
