@@ -48,7 +48,7 @@ def create_exam_calendar(selected_courses, user_last_name):
         calendar.events.add(exam_event)
 
     # Write to an .ics file
-    filename = f"{user_last_name.lower()}_final_exams_2024_fall.ics"
+    filename = f"{user_last_name.lower()}_final_exams_2025_winter.ics"
     import tempfile
     with tempfile.NamedTemporaryFile(delete=False, suffix='.ics') as tmp_file:
         tmp_file.write(calendar.serialize().encode('utf-8'))
