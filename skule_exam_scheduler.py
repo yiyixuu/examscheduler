@@ -91,4 +91,4 @@ else:
     st.error("Please enter your last name and select at least one course.")
 
 st.markdown("---")
-st.markdown("<div style='text-align: center;'>Made by Yiyi Xu, N&Psi; 2T7 😎</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'>Made by Yiyi Xu, N&Psi; 2T7aahihdiwh 😎</div>", unsafe_allow_html=True)
